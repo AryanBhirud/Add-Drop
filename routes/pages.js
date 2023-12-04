@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router();
+const { validateToken } = require('../jwt.js');
 
-router.get('/', (req, res) => {
+router.get('/', validateToken, (req, res) => {
     res.render('index');
 });
 router.get('/signup', (req, res)=>{

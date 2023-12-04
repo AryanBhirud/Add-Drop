@@ -5,13 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <!-- Add these lines inside the <head> section of your HTML -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
-        integrity="sha512-b+WE8P10T8P6EEYY2y0f3fRDR1I+XvE9+BoAmkn0H2W1LHv2gMKx8AiS0tjIs/LIM6x9aei28W5LTT4I5YZi6OQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
-        integrity="sha512-0etdU4RQ8Ff5fWyFuWsL6RiUNo86gXbyBzrCttTHkruaY+K6g59E5hGg1vF0wW5JvZMJCkjoZqVZjWl6wH1WLw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <title>Dropp</title>
 </head>
@@ -32,6 +25,10 @@
                 </div>
             </form>
         </div>
+        {{#if message}}
+        <p>{{message}}</p>
+        {{/if}}
+
 
     </div>
 

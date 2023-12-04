@@ -8,6 +8,17 @@ const pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE
 }).promise()
 
+async function getEmail(email) {
+    const [isemail] = await pool.query("SELECT * FROM users WHERE email = ?", [email]);
+    return isemail
+}
+var users = 5;
+async function signupUser(email, password) {
+    student_id = users;
+    const [user] = await pool.query('INSERT INTO users SET ?', {student_id: student_id, email: email, password: password});
+    users += 1;
+    return users
+}
 
 async function getCourses() {
     const [rows] = await pool.query("SELECT * FROM all_courses");
@@ -31,5 +42,7 @@ async function dropCourse(student_id, year, course_name, faculty, slot) {
 module.exports = {
     getCourses,
     dropCourse,
-    myDrops
+    myDrops,
+    getEmail,
+    signupUser
   };
