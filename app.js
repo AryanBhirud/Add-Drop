@@ -43,9 +43,21 @@ app.post('/drop', async (req, res) => {
     res.status(201).send(dropped_courses[0])
 })
 
-app.use('/',validateToken , require('./routes/pages'));
+app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
 app.listen(8080, () => {
     console.log('Server is running on port 8080')
 })
+
+
+
+// logout ka button
+// populate right content
+// drop courses student id manage
+// delete drop courses
+// forget password
+// add courses dashboard
+// filtering courses
+// one-to-one mapping 
+// triple chaining

@@ -2,6 +2,7 @@ trial-register
 node_modules
 schema.sql
 testing.js
-script.js
+/script.js
 index.html
+style.css
 .env

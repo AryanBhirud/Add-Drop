@@ -9,11 +9,13 @@ const createTokens = (user) => {
 
   return accessToken;
 };
+
+
 const validateToken = (req, res, next) => {
     const accessToken = req.cookies["access-token"];
   
     if (!accessToken)
-      return res.render('login');
+      return res.redirect('/login');
   
     try {
       const validToken = verify(accessToken, process.env.JWT_SECRET);
