@@ -1,92 +1,113 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>Dropp</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<body>
+    <title>Dropp</title>
+  </head>
+
+  <body>
     <nav class="navbar">
-        <a href="index">Drop</a>
-        <div class="right-nav">
-            <div class="welcome" id="email-display"></div>
-            <form action="/auth/logout" method="post">
-                <button type="submit">Logout</button>
-            </form>
-        </div>
+      <a href="index">Drop</a>
+      <div class="right-nav">
+        <div class="welcome" id="email-display"></div>
+        <form action="/auth/logout" method="post">
+          <button type="submit">Logout</button>
+        </form>
+      </div>
 
     </nav>
     <div class="wrapper">
-        <div class="drop-card">
-            <div class="left-content">
-                <div class="header">
-                    <h1>Drop Course</h1>
-                </div>
-                <form>
-                    <div class="drop-form">
+      <div class="drop-card">
+        <div class="left-content">
+          <div class="header">
+            <h1>Drop Course</h1>
+          </div>
+          <form>
+            <div class="drop-form">
 
-                        <div class="form-item">
+              <div class="form-item">
 
-                            <label>Year: </label>
-                            <select name="year" class="drop-down select2" id="year-drop-down">
-                            </select>
-                        </div>
-                        <div class="form-item">
-                            <label>Course: </label>
-                            <select name="course" class="drop-down select2" id="course-drop-down">
-                                <option value="python" class="form-element" selected>BCSE101E Python</option>
-                            </select>
-                        </div>
-                        <div class="form-item">
-                            <label>Faculty: </label>
-                            <select name="faculty" class="drop-down select2" id="faculty-drop-down">
-                                <option value="durgesh" class="form-element" selected>Durgesh Kumar</option>
-                            </select>
-                        </div>
-                        <div class="form-item">
-                            <label>Slot: </label>
-                            <select name="slot" class="drop-down select2" id="slot-drop-down">
-                                <option value="TG1" class="form-element" selected>TG1</option>
-                            </select>
-                        </div>
-                        <div class="form-button">
-                            <button type="button" onclick="dropCourse()">Submit</button>
-                        </div>
-                    </div>
-                </form>
-
+                <label>Year: </label>
+                <select
+                  name="year"
+                  class="drop-down select2"
+                  id="year-drop-down"
+                >
+                </select>
+              </div>
+              <div class="form-item">
+                <label>Course: </label>
+                <select
+                  name="course"
+                  class="drop-down select2"
+                  id="course-drop-down"
+                >
+                  <option value="python" class="form-element" selected>BCSE101E
+                    Python</option>
+                </select>
+              </div>
+              <div class="form-item">
+                <label>Faculty: </label>
+                <select
+                  name="faculty"
+                  class="drop-down select2"
+                  id="faculty-drop-down"
+                >
+                  <option value="durgesh" class="form-element" selected>Durgesh
+                    Kumar</option>
+                </select>
+              </div>
+              <div class="form-item">
+                <label>Slot: </label>
+                <select
+                  name="slot"
+                  class="drop-down select2"
+                  id="slot-drop-down"
+                >
+                  <option value="TG1" class="form-element" selected>TG1</option>
+                </select>
+              </div>
+              <div class="form-button">
+                <button type="button" onclick="dropCourse()">Submit</button>
+              </div>
             </div>
-            <div class="right-content">
-                <h1>Dropped Courses</h1>
-                <p>The courses you choose to drop will be listed here...</p>
-                <ol id="dropped-courses">
+          </form>
 
-                </ol>
-            </div>
         </div>
+        <div class="right-content">
+          <h1>Dropped Courses</h1>
+          <p>The courses you choose to drop will be listed here...</p>
+          {{! <ol id="dropped-courses">
+
+                </ol> }}
+          <table class="course-table" id="course-table">
+            <thead>
+              {{!-- <tr>
+                <th>Course Name</th>
+                <th>Action</th>
+              </tr> --}}
+            </thead>
+            <tbody>
+              <!-- Table rows will be dynamically added here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
     <script src="/script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const selectElements = document.querySelectorAll('.select2');
-            selectElements.forEach(function (selectElement) {
-                new Select2(selectElement, {
-                    matcher: function (params, data) {
-                        if ($.trim(params.term) === '') {
-                            return data;
-                        }
-                        if (data.text.toUpperCase().includes(params.term.toUpperCase())) {
-                            return data;
-                        }
-                        return null;
-                    }
-                });
-            });
-        });
+      document.addEventListener('DOMContentLoaded', function () { const
+      selectElements = document.querySelectorAll('.select2');
+      selectElements.forEach(function (selectElement) { new
+      Select2(selectElement, { matcher: function (params, data) { if
+      ($.trim(params.term) === '') { return data; } if
+      (data.text.toUpperCase().includes(params.term.toUpperCase())) { return
+      data; } return null; } }); }); });
     </script>
-</body>
+  </body>
 
 </html>

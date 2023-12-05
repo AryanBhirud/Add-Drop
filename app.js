@@ -11,6 +11,7 @@ const dropCourse = db.dropCourse;
 const getCourses = db.getCourses;
 const getEmail = db.getEmail;
 const myDrops = db.myDrops;
+const deleteDrop = db.deleteDroppedCourse_db;
 
 const app = express()
 app.use(cookieParser());
@@ -41,6 +42,16 @@ app.post('/drop', async (req, res) => {
     const { student_id, year, course_name, faculty, slot } = req.body
     const dropped_courses = await dropCourse(student_id, year, course_name, faculty, slot)
     res.status(201).send(dropped_courses[0])
+})
+
+app.post('/deletedrop', async (req, res) => {
+    const { student_id, course_name } = req.body;
+    const deletedrop = await deleteDrop(student_id, course_name);
+    if(deleteDrop == 1) {
+        res.status(200).send(`${course_name} was deleted from your drop list.`);
+    } else {
+        res.status(500);
+    }
 })
 
 app.use('/', require('./routes/pages'));

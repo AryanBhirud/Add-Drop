@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800');
 
 body{
     display: flex;
@@ -21,25 +21,30 @@ body{
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
 	background: linear-gradient(to right, #FF4B2B, #FF416C);
     justify-content: space-between;
+    align-items: center;
 }
 
 .right-nav{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    height: 100%;
 }
 
 .welcome{
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 15px;
     color: #fff;
+    height: 100%;
 }
 
-.navbar button{
-    justify-self: end;
+.right-nav button{
+    justify-content: center;
+    align-items: center;
     background: transparent;
     border: transparent;
-    height: 100%;
     color: #fff;
     padding: 15px 20px;
     font-size: 15px;
@@ -229,4 +234,37 @@ body{
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
     
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: none;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.delete-button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.course-table{
+    color: #fff;
+    font-weight: 600;
+}
+
+.cell-text{
+    display: flex;
+    margin-inline-start: 20%;
 }

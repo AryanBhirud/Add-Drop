@@ -39,10 +39,21 @@ async function dropCourse(student_id, year, course_name, faculty, slot) {
     return myDrops(student_id)
 }
 
+async function deleteDroppedCourse_db(student_id, course_name) {
+    const [result] = await pool.query(`DELETE FROM drop_courses WHERE student_id = ? AND course_name = ?`, [student_id, course_name])
+    if(result) { 
+        return 1
+    } else {
+        return null
+    }
+    
+}
+
 module.exports = {
     getCourses,
     dropCourse,
     myDrops,
     getEmail,
-    signupUser
+    signupUser,
+    deleteDroppedCourse_db
   };
