@@ -202,7 +202,16 @@ function getCookieValue(name) {
 }
 
 async function dropCourse() {
-  const selectedYear = 2024-parseInt(getCookieValue('email').match(/\d+/g), 10);
+  const Year = 2024-parseInt(getCookieValue('email').match(/\d+/g), 10);
+  if(Year == 1){
+    const selectedYear = 'First';
+  } else if(Year == 2){
+    const selectedYear = 'Second';
+  } else if(Year == 3){
+    const selectedYear = 'Third';
+  } else {
+    const selectedYear = 'Fourth';
+  }
   const selectedCourse = document.getElementById("course-drop-down").value;
   const selectedFaculty = document.getElementById("faculty-drop-down").value;
   const selectedSlot = document.getElementById("slot-drop-down").value;
