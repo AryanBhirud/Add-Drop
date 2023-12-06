@@ -28,7 +28,7 @@
       <div class="drop-card">
         <div class="left-content">
           <div class="header">
-            <h1>Drop Course</h1>
+            <h1>Add Course</h1>
           </div>
           <form>
             <div class="drop-form">
@@ -76,15 +76,15 @@
                 </select>
               </div>
               <div class="form-button">
-                <button type="button" onclick="dropCourse()">Submit</button>
+                <button type="button" onclick="addCourse()">Submit</button>
               </div>
             </div>
           </form>
 
         </div>
         <div class="right-content">
-          <h1>Dropped Courses</h1>
-          <p>The courses you choose to drop will be listed here...</p>
+          <h1>Added Courses</h1>
+          <p>The courses you choose to add will be listed here...</p>
           {{! <ol id="dropped-courses">
 
                 </ol> }}
@@ -103,15 +103,7 @@
       </div>
     </div>
     <script src="/script.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () { const
-      selectElements = document.querySelectorAll('.select2');
-      selectElements.forEach(function (selectElement) { new
-      Select2(selectElement, { matcher: function (params, data) { if
-      ($.trim(params.term) === '') { return data; } if
-      (data.text.toUpperCase().includes(params.term.toUpperCase())) { return
-      data; } return null; } }); }); });
-    </script>
+    
   </body>
 
 </html>

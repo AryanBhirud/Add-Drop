@@ -257,6 +257,7 @@ th {
     border: none;
     color: #fff;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .course-table{

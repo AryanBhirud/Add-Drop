@@ -11,5 +11,11 @@ router.get('/signup', (req, res)=>{
 router.get('/login', (req, res) => {
     res.render('login');
 });
+router.get('/dashboard', validateToken, (req, res)=>{
+    res.render('dashboard');
+})
+router.get('/add', validateToken, (req, res) => {
+    res.render('add');
+})
 
 module.exports = router;
